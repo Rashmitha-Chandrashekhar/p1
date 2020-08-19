@@ -1,0 +1,13 @@
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function (req, res) {
+    res.write("http server");
+    fs.readFile('e2.txt', function (err, data) { 
+        if (err) { 
+           console.error(err); 
+        } 
+        console.log("Asynchronous read: " + data.toString()); 
+     }); 
+  res.end();
+}).listen(8080);
